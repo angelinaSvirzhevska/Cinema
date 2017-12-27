@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+<meta name ="keywords"
+      content="film,cinema,new,stars,kiev"/>
+<meta name="description"
+      content="Этот сайт является сайтом кинотеатра"./>
+{% block title %}{{ film.name }}{% endblock %}
+
+{% block body %}
+    <div id="page-wrap">
+        <header>
+            <div class="canvas"><canvas id="canvas"></canvas></div>
+            <script type="text/javascript" src="http://127.0.0.1:8000/bundles/app/js/canvas.js"></script>
+
+            <a href="galactik-kino.html" title="На главную" id="logo">Галактик-кино</a>
+
+        </header>
+        <div class ="clear"><br/></div>
+        <center>
+            <div id="menu"></div>
+            <div id="menuHrefs">
+                <a href ="{{ path('homepage') }}">Расписание </a>
+                <a href="{{ path('about_us') }}">О нас </a>
+                <a href="{{ path('contacts') }}"> Контакты </a>
+            </div>
+        </center>
+        <center>
+            <div id="info"><strong>{{ film.name }}</strong><hr/></div>
+        </center>
+    </div>
+    <div id="poster">
+fffffffffffffffffffffffffffffff
+    </div>
+
+    <div id="discription">
+
+    </div>
+    <footer>
+        <span class="left">Все права защищены &copy; 2017</span>
+    </footer>
+{% endblock %}
