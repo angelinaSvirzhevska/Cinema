@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+<meta name ="keywords"
+content="film,cinema,new,stars,kiev"/>
+<meta name="description"
+content="Этот сайт является сайтом кинотеатра"./>
+{% block title %}Galactic-kino{% endblock %}
+
+{% block body %}
+<div id="page-wrap">
+    <header>
+        <div class="canvas"><canvas id="canvas"></canvas></div>
+        <script type="text/javascript" src="http://127.0.0.1:8000/bundles/app/js/canvas.js"></script>
+
+        <a href="{{ path('homepage') }}" title="На главную" id="logo">Галактик-кино</a>
+
+    </header>
+    <div class ="clear"><br/></div>
+    <center>
+        <div id="menu"></div>
+        <div id="menuHrefs">
+            <a href ="{{ path('homepage') }}">Расписание </a>
+            <a href="{{ path('about_us') }}">О нас </a>
+            <a href="{{ path('contacts') }}"> Контакты </a>
+        </div>
+    </center>
+    <div id="wrapper">
+        <div id="articles">
+            {% for film in films %}
+            <article>
+                <img src="{{ asset('img/' ~ film.image) }}" alt="Изображение" title="Изображение" />
+                <h2>{{ film.name }}</h2>
+                <!-- <p>Вступительный текст</p> -->
+                <div class="center_text">
+                    <a href="{{ path("film", {"id": film.id}) }}" title="подробнее о фильме">Купить билет</a>
+                </div>
+            </article>
+            {% endfor %}
+        </div>
+        <div class="clear">
+
+            <!-- <div id="main_soc_block">
+               <div id="main_soc_block_in">
+               </div>
+
+             </div> -->
+        </div>
+    </div>
+</div>
+<footer>
+		<span class="left"> ©2017, Galactik-kino. Все права защищены.</span>
+		<span class="right"> Просмотров: {{ count }}</span>
+</footer>
+{% endblock %}
